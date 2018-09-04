@@ -13,8 +13,7 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   final String _appBarTitle = "ListViewFirstApplication";
-  final _stringItems = List<String>.generate(10, (i) => '$i');
-  var _items = initItemList();
+  var _items = List<ListItemWidget>.generate(10,(i) => ListItemWidget(i));
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class MyAppState extends State<MyApp> {
         body: ListView.builder(
             itemCount: _items.length,
             itemBuilder: (context, index) {
-              final item = _items[index];
+              final item = _items[index].id;
               return Dismissible(
                 key: new Key(item.toString() + index.toString()),
                 onDismissed: (direction) {
@@ -32,23 +31,16 @@ class MyAppState extends State<MyApp> {
                     _items.removeAt(index);
                   });
                 },
-                child: new ListItemWidget()
+                child: new ListItemWidget(index)
               );
             }),
       ),
     );
   }
-
-  static List initItemList() {
-    List items = new List();
-    for (int i = 0; i < 10; i++) {
-      items.add(new ListItemWidget());
-    }
-    return items;
-  }
 }
 
 class ListItemWidget extends StatelessWidget {
+  final int id;
   final double _paddingAll = 4.0;
   final String _imageAssetName = "assets/images/flutter.png";
   final double _imageHeight = 220.0;
@@ -58,6 +50,8 @@ class ListItemWidget extends StatelessWidget {
   final double _textPaddingBottom = 8.0;
   final double _paddingLeft = 8.0;
   final double _paddingRight = 8.0;
+
+  ListItemWidget(this.id);
 
   @override
   Widget build(BuildContext context) {
