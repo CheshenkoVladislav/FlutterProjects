@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/ImageLoader.dart';
 
 class FavouriteItem extends StatelessWidget {
 
-  final int id;
+  final Object id;
+  final String imageUrl;
+  final String price;
   final double _paddingAll = 4.0;
   final double _contentPadding = 40.0;
   final double _imagePaddingLeft = 60.0;
@@ -12,7 +15,9 @@ class FavouriteItem extends StatelessWidget {
   final double _textPaddingLeft = 32.0;
   final double _textPaddingBottom = 8.0;
 
-  FavouriteItem(this.id);
+  FavouriteItem();
+
+  FavouriteItem.fromNetwork(this.id, this.imageUrl, this.price);
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +35,8 @@ class FavouriteItem extends StatelessWidget {
                       top: _contentPadding,
                       bottom: _contentPadding,
                       left: _imagePaddingLeft),
-                  child: new Row(children: <Widget>[new Image(
-                      image: AssetImage(_imageAssetName),
-                      width: _imageWidth,
-                      height: _imageHeight,
-                      fit: BoxFit.cover),
+                  child: new Row(children: <Widget>[
+                    Image.network('https://avatars.mds.yandex.net/get-pdb/51720/626db538-887b-4a4f-8500-ddb2f41ac55a/s800'),
                   new Expanded(
                       child: new Padding(
                           padding: new EdgeInsets.all(_textPaddingLeft),
@@ -58,3 +60,8 @@ class FavouriteItem extends StatelessWidget {
                 ))));
   }
 }
+
+imageUrl,
+width: _imageWidth,
+height: _imageHeight,
+fit: BoxFit.cover
