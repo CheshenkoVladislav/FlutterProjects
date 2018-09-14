@@ -1,21 +1,12 @@
-import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Favourite.dart';
-import 'package:flutter_app/FavouriteItemMain.dart';
+import 'package:flutter_app/mainScreens/FavouriteItemMain.dart';
 import 'package:flutter_app/FavouritesList.dart';
-import 'package:flutter_app/FavoutiteItem.dart';
-
-//import 'package:path/path.dart';
-//import 'package:jaguar_client/jaguar_client.dart';
-import 'package:http/http.dart' as http;
-import 'dart:developer';
 
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
 
-  final String _appBarTitle = "ListViewApplication";
+  final String _appBarTitle = "Избранное";
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +17,8 @@ class MyApp extends StatelessWidget {
       },
       home: new Scaffold(
         appBar: new AppBar(
-            title: new Text(_appBarTitle)),
+            title: new Center(child:
+            new Text(_appBarTitle))),
         body: new FavouritList()
       )
     );

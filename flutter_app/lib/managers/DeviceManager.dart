@@ -1,17 +1,12 @@
 import 'dart:async';
 
 import 'dart:io';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:device_info/device_info.dart';
 
 class DeviceManager {
   Map _deviceData;
   DeviceInfoPlugin deviceInfoPlugin = new DeviceInfoPlugin();
-
-  Map getDeviceData() {
-
-  }
 
   Future<Map> initPlatformState() async {
     try {

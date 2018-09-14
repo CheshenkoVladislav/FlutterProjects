@@ -1,27 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/FavouriteData.dart';
+import 'package:flutter_app/data/FavouriteData.dart';
 
 class FavouriteItem extends StatelessWidget {
 
-  final String id;
-  final String _name;
-  final String _imageUrl;
-  final String _price;
-  final FavouriteJSON favouriteData;
+  final Favourite favouriteData;
 
   //ITEM SIZE
   final double _paddingAll = 4.0;
   final double _contentPadding = 40.0;
   final double _imagePaddingLeft = 60.0;
-  final String _imageAssetName = "assets/images/image.jpg";
   final double _imageHeight = 220.0;
   final double _imageWidth = 120.0;
   final double _textPaddingLeft = 32.0;
   final double _textPaddingBottom = 8.0;
 
-  FavouriteItem(this.favouriteData);
-
-  FavouriteItem.fromNetwork(this.id, this._name, this._price, this._imageUrl);
+  FavouriteItem.fromNetwork(this.favouriteData);
 
   void _changeScreen(context) {
     Navigator.pushNamed(context, '/second');
@@ -29,7 +22,7 @@ class FavouriteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("IMAGE: = " + _imageUrl);
+    print("IMAGE: = " + favouriteData.thumbnail);
     double _screenSize = MediaQuery
         .of(context)
         .size
@@ -49,7 +42,7 @@ class FavouriteItem extends StatelessWidget {
                       bottom: _contentPadding,
                       left: _imagePaddingLeft),
                   child: new Row(children: <Widget>[
-                    new Image(image: NetworkImage(_imageUrl),
+                    new Image(image: NetworkImage(favouriteData.thumbnail),
                       height: _imageHeight,
                       width: _imageWidth,
                       fit: BoxFit.cover,
@@ -64,14 +57,14 @@ class FavouriteItem extends StatelessWidget {
                                 Padding(
                                   padding: new EdgeInsets.only(
                                       bottom: _textPaddingBottom),
-                                  child: new Text(_name),
+                                  child: new Text(favouriteData.name),
                                 ),
                                 Padding(
                                   padding: new EdgeInsets.only(
                                       bottom: _textPaddingBottom),
-                                  child: new Text("Магазин"),
+                                  child: new Text('МАГАЗИН'),
                                 ),
-                                new Text(_price.toString())
+                                new Text(favouriteData.price.toString())
                               ])))
                   ]),
                 )))));

@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/DeviceManager.dart';
+import 'package:flutter_app/managers/DeviceManager.dart';
+import 'package:flutter_app/data/FavouriteData.dart';
 import 'package:flutter_app/FavoutiteItem.dart';
-import 'package:flutter_app/NetworkManager.dart';
+import 'package:flutter_app/managers/NetworkManager.dart';
 import 'package:http/http.dart' as http;
 
 class FavouritList extends StatefulWidget {
@@ -14,9 +15,7 @@ class FavouritList extends StatefulWidget {
 }
 
 class FavouritState extends State<FavouritList> {
-
-  List _items = new List();
-  List<FavouriteItem> items;
+  List<Favourite> _items;
   String _device;
   DeviceManager deviceManager = new DeviceManager();
   NetworkManager networkManager = new NetworkManager();
@@ -27,10 +26,10 @@ class FavouritState extends State<FavouritList> {
   }
 
   Future initData() async {
-    String response = await networkManager.getFavourites(_device);
+    http.Response response = await networkManager.getFavourites(_device);
     setState(() {
       print("SET STATE");
-      items = json.decode(response);
+      _items = FavouritesWrapper.fromJson(json.decode(response.body)).favorites;
     });
   }
 
@@ -41,20 +40,21 @@ class FavouritState extends State<FavouritList> {
         itemBuilder: (context, index) {
           final item = _items[index];
           return Dismissible(
-              key: new Key(item.toString() + index.toString()),
+              key: new Key(item.name + item.shopId.id),
               onDismissed: (direction) {
                 setState(() {
                   //TODO: Remove POST there
-                  networkManager.removeItem(_device, _items[index]['id']);
+                  networkManager.removeItem(_device, _items[index].toString());
                   _items.removeAt(index);
                 });
               },
-              child: new FavouriteItem.fromNetwork(new FavouriteItem(favouriteData)));
+              child: new FavouriteItem.fromNetwork(_items[index]));
         });
   }
 
   @override
   void initState() {
+    super.initState();
     initDeviceInfo();
     initData();
   }
