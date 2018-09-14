@@ -6,24 +6,26 @@ import 'package:flutter/services.dart';
 import 'package:device_info/device_info.dart';
 
 class DeviceManager {
-  var _deviceData;
+  Map _deviceData;
+  DeviceInfoPlugin deviceInfoPlugin = new DeviceInfoPlugin();
 
-  void getDeviceData() {
-    Future<Null> initPlatformState() async {
-      Map<String, dynamic> deviceData;
+  Map getDeviceData() {
 
-      try {
-        if (Platform.isAndroid) {
-          deviceData = _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
-        } else if (Platform.isIOS) {
-          deviceData = _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
-        }
-      } on PlatformException {
-        deviceData = <String, dynamic>{
-          'Error:': 'Failed to get platform version.'
-        };
+  }
+
+  Future<Map> initPlatformState() async {
+    try {
+      if (Platform.isAndroid) {
+        _deviceData = _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
+      } else if (Platform.isIOS) {
+        _deviceData = _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
       }
+    } on PlatformException {
+      _deviceData = <String, dynamic>{
+        'Error:': 'Failed to get platform version.'
+      };
     }
+    return _deviceData;
   }
 
   Map<String, dynamic> _readAndroidBuildData(AndroidDeviceInfo build) {

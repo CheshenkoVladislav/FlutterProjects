@@ -164,14 +164,14 @@ packages:
       name: jaguar_resty
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.8.2"
+    version: "2.8.4"
   jaguar_serializer:
     dependency: transitive
     description:
       name: jaguar_serializer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0"
+    version: "2.2.2"
   js:
     dependency: transitive
     description:

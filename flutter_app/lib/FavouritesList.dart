@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/DeviceManager.dart';
 import 'package:flutter_app/FavoutiteItem.dart';
+import 'package:flutter_app/NetworkManager.dart';
 import 'package:http/http.dart' as http;
 
 class FavouritList extends StatefulWidget {
@@ -12,36 +14,24 @@ class FavouritList extends StatefulWidget {
 }
 
 class FavouritState extends State<FavouritList> {
+
   List _items = new List();
+  List<FavouriteItem> items;
+  String _device;
+  DeviceManager deviceManager = new DeviceManager();
+  NetworkManager networkManager = new NetworkManager();
 
-  void getDeviceInfo() {
-
+  Future initDeviceInfo() async {
+    Map deviceMap = await deviceManager.initPlatformState();
+    _device = deviceMap['device'];
   }
 
-  Future getData() async {
-    final response = await http.get(
-        Uri.encodeFull('http://api.dressmeapp.ru/v2/favorites/list?'),
-        headers: {
-          "Accept":
-              "	text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-        });
-    if (response.statusCode == 200) {
-      setState(() {
-        print("SET STATE");
-        _items = json.decode(response.body);
-      });
-      print("SUCCESS!!!");
-      print(_items);
-      return true;
-    } else {
-      throw Exception('FAILED HTTP RESPONSE');
-    }
-  }
-  
-  Future removeItem() async {
-    final response = await http.post(
-      Uri.encodeFull('http://api.dressmeapp.ru/v2/favorites/remove?')
-    )
+  Future initData() async {
+    String response = await networkManager.getFavourites(_device);
+    setState(() {
+      print("SET STATE");
+      items = json.decode(response);
+    });
   }
 
   @override
@@ -55,18 +45,17 @@ class FavouritState extends State<FavouritList> {
               onDismissed: (direction) {
                 setState(() {
                   //TODO: Remove POST there
+                  networkManager.removeItem(_device, _items[index]['id']);
                   _items.removeAt(index);
                 });
               },
-              child: new FavouriteItem.fromNetwork(
-                  _items[index]['name'],
-                  _items[index]['price'].toString(),
-                  _items[index]['thumbnail'].toString()));
+              child: new FavouriteItem.fromNetwork(new FavouriteItem(favouriteData)));
         });
   }
 
   @override
   void initState() {
-    getData();
+    initDeviceInfo();
+    initData();
   }
 }

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/FavouriteData.dart';
 
 class FavouriteItem extends StatelessWidget {
 
-  final Object id;
+  final String id;
   final String _name;
   final String _imageUrl;
   final String _price;
+  final FavouriteJSON favouriteData;
+
+  //ITEM SIZE
   final double _paddingAll = 4.0;
   final double _contentPadding = 40.0;
   final double _imagePaddingLeft = 60.0;
@@ -15,9 +19,9 @@ class FavouriteItem extends StatelessWidget {
   final double _textPaddingLeft = 32.0;
   final double _textPaddingBottom = 8.0;
 
-  FavouriteItem();
+  FavouriteItem(this.favouriteData);
 
-  FavouriteItem.fromNetwork(this._name, this._price, this._imageUrl);
+  FavouriteItem.fromNetwork(this.id, this._name, this._price, this._imageUrl);
 
   void _changeScreen(context) {
     Navigator.pushNamed(context, '/second');
