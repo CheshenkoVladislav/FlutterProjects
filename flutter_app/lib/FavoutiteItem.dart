@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ImageLoader.dart';
 
 class FavouriteItem extends StatelessWidget {
 
@@ -17,15 +16,24 @@ class FavouriteItem extends StatelessWidget {
 
   FavouriteItem();
 
-  FavouriteItem.fromNetwork(this.id, this.imageUrl, this.price);
+  FavouriteItem.fromNetwork(this.id, this.price, this.imageUrl);
+
+  void _changeScreen(context) {
+    Navigator.pushNamed(context, '/second');
+  }
 
   @override
   Widget build(BuildContext context) {
+    print("IMAGE: = " + imageUrl);
     double _screenSize = MediaQuery
         .of(context)
         .size
         .height;
-    return new Padding(
+    return new GestureDetector(
+      onTap: (){
+        _changeScreen(context);
+      },
+      child: new Padding(
         padding: new EdgeInsets.all(_paddingAll),
         child: new Card(
             child: new Container(
@@ -36,7 +44,11 @@ class FavouriteItem extends StatelessWidget {
                       bottom: _contentPadding,
                       left: _imagePaddingLeft),
                   child: new Row(children: <Widget>[
-                    Image.network('https://avatars.mds.yandex.net/get-pdb/51720/626db538-887b-4a4f-8500-ddb2f41ac55a/s800'),
+                    new Image(image: NetworkImage(imageUrl),
+                      height: _imageHeight,
+                      width: _imageWidth,
+                      fit: BoxFit.cover,
+                    ),
                   new Expanded(
                       child: new Padding(
                           padding: new EdgeInsets.all(_textPaddingLeft),
@@ -57,11 +69,6 @@ class FavouriteItem extends StatelessWidget {
                                 new Text("Price")
                               ])))
                   ]),
-                ))));
+                )))));
   }
 }
-
-imageUrl,
-width: _imageWidth,
-height: _imageHeight,
-fit: BoxFit.cover
