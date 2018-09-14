@@ -14,6 +14,10 @@ class FavouritList extends StatefulWidget {
 class FavouritState extends State<FavouritList> {
   List _items = new List();
 
+  void getDeviceInfo() {
+
+  }
+
   Future getData() async {
     final response = await http.get(
         Uri.encodeFull('http://api.dressmeapp.ru/v2/favorites/list?'),
@@ -33,6 +37,12 @@ class FavouritState extends State<FavouritList> {
       throw Exception('FAILED HTTP RESPONSE');
     }
   }
+  
+  Future removeItem() async {
+    final response = await http.post(
+      Uri.encodeFull('http://api.dressmeapp.ru/v2/favorites/remove?')
+    )
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +54,13 @@ class FavouritState extends State<FavouritList> {
               key: new Key(item.toString() + index.toString()),
               onDismissed: (direction) {
                 setState(() {
+                  //TODO: Remove POST there
                   _items.removeAt(index);
                 });
               },
               child: new FavouriteItem.fromNetwork(
-                  _items[index]['id'],
                   _items[index]['name'],
+                  _items[index]['price'].toString(),
                   _items[index]['thumbnail'].toString()));
         });
   }

@@ -22,6 +22,8 @@ dependencies:
   # see https://pub.dartlang.org/packages/jaguar_client
   jaguar_client: ^2.2.2
 
+  device_info: ^0.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

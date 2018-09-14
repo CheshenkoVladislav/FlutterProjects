@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class FavouriteItem extends StatelessWidget {
 
   final Object id;
-  final String imageUrl;
-  final String price;
+  final String _name;
+  final String _imageUrl;
+  final String _price;
   final double _paddingAll = 4.0;
   final double _contentPadding = 40.0;
   final double _imagePaddingLeft = 60.0;
@@ -16,7 +17,7 @@ class FavouriteItem extends StatelessWidget {
 
   FavouriteItem();
 
-  FavouriteItem.fromNetwork(this.id, this.price, this.imageUrl);
+  FavouriteItem.fromNetwork(this._name, this._price, this._imageUrl);
 
   void _changeScreen(context) {
     Navigator.pushNamed(context, '/second');
@@ -24,7 +25,7 @@ class FavouriteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("IMAGE: = " + imageUrl);
+    print("IMAGE: = " + _imageUrl);
     double _screenSize = MediaQuery
         .of(context)
         .size
@@ -44,7 +45,7 @@ class FavouriteItem extends StatelessWidget {
                       bottom: _contentPadding,
                       left: _imagePaddingLeft),
                   child: new Row(children: <Widget>[
-                    new Image(image: NetworkImage(imageUrl),
+                    new Image(image: NetworkImage(_imageUrl),
                       height: _imageHeight,
                       width: _imageWidth,
                       fit: BoxFit.cover,
@@ -59,14 +60,14 @@ class FavouriteItem extends StatelessWidget {
                                 Padding(
                                   padding: new EdgeInsets.only(
                                       bottom: _textPaddingBottom),
-                                  child: new Text("Shop"),
+                                  child: new Text(_name),
                                 ),
                                 Padding(
                                   padding: new EdgeInsets.only(
                                       bottom: _textPaddingBottom),
-                                  child: new Text("Address"),
+                                  child: new Text("Магазин"),
                                 ),
-                                new Text("Price")
+                                new Text(_price.toString())
                               ])))
                   ]),
                 )))));
