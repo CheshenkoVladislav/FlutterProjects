@@ -20,6 +20,7 @@ class FavouriteState extends State<FavouritList> {
   String _device;
   DeviceManager deviceManager = new DeviceManager();
   NetworkManager networkManager = new NetworkManager();
+  double animatedHeight;
 
   Future initDeviceInfo() async {
     Map deviceMap = await deviceManager.initPlatformState();
@@ -31,9 +32,8 @@ class FavouriteState extends State<FavouritList> {
       http.Response response = await networkManager.getFavourites(_device);
       setState(() {
         print("SET STATE");
-        items = FavouritesWrapper
-            .fromJson(json.decode(response.body))
-            .favorites;
+        items =
+            FavouritesWrapper.fromJson(json.decode(response.body)).favorites;
       });
     } else {
       setState(() {});
@@ -42,13 +42,18 @@ class FavouriteState extends State<FavouritList> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    animatedHeight = screenHeight / 2.6;
     return ListView.builder(
-      controller: new ScrollController(),
+        controller: new ScrollController(),
         itemCount: items == null ? 0 : items.length,
         itemBuilder: (context, index) {
           final item = items[index];
-          return new FavouriteItem.fromNetwork(
-              item, this, index, _device, networkManager);
+          return new AnimatedContainer(
+              duration: new Duration(milliseconds: 200),
+              height:  animatedHeight,
+              child: new FavouriteItem.fromNetwork(
+              item, this, index, _device, networkManager));
         });
   }
 
@@ -58,5 +63,12 @@ class FavouriteState extends State<FavouritList> {
     print('INIT STATE');
     initDeviceInfo();
     initData();
+  }
+
+  void removeItem(int index) {
+    setState(() {
+      animatedHeight = 0.0;
+      items.removeAt(index);
+    });
   }
 }

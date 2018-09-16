@@ -35,7 +35,8 @@ class FavouriteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("IMAGE: = " + favouriteData.thumbnail);
-    double _screenSize = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double itemHeight = screenHeight / 2.6;
     return new GestureDetector(
         onTap: () {
           _changeScreen(context);
@@ -49,18 +50,13 @@ class FavouriteItem extends StatelessWidget {
                     delegate: new SlidableStrechDelegate(),
                     actions: <Widget>[
                       new IconSlideAction(
-                        caption: 'Delete',
-                        closeOnTap: false,
-                        color: Colors.red,
-                        icon: Icons.delete,
-                        onTap: () {
-                          parentState.setState(() {
-                            networkManager.removeItem(
-                                device, favouriteData.id.id);
-                            parentState.items.removeAt(index);
-                          });
-                        },
-                      ),
+                          caption: 'Delete',
+                          closeOnTap: false,
+                          color: Colors.red,
+                          icon: Icons.delete,
+                          onTap: () {
+                            parentState.removeItem(index);
+                          })
                     ],
                     slideToDismissDelegate: new SlideToDismissDrawerDelegate(
                         onDismissed: (actionType) {
@@ -70,7 +66,7 @@ class FavouriteItem extends StatelessWidget {
                       });
                     }),
                     child: new Container(
-                        height: _screenSize / 2.6,
+                        height: itemHeight,
                         child: Padding(
                           padding: new EdgeInsets.only(
                               right: _contentPadding,
