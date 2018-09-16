@@ -5,17 +5,18 @@ import 'package:flutter_app/managers/DeviceManager.dart';
 import 'package:flutter_app/data/FavouriteData.dart';
 import 'package:flutter_app/FavoutiteItem.dart';
 import 'package:flutter_app/managers/NetworkManager.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:http/http.dart' as http;
 
 class FavouritList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new FavouritState();
+    return new FavouriteState();
   }
 }
 
-class FavouritState extends State<FavouritList> {
-  List<Favourite> _items;
+class FavouriteState extends State<FavouritList> {
+  List<Favourite> items;
   String _device;
   DeviceManager deviceManager = new DeviceManager();
   NetworkManager networkManager = new NetworkManager();
@@ -26,35 +27,35 @@ class FavouritState extends State<FavouritList> {
   }
 
   Future initData() async {
-    http.Response response = await networkManager.getFavourites(_device);
-    setState(() {
-      print("SET STATE");
-      _items = FavouritesWrapper.fromJson(json.decode(response.body)).favorites;
-    });
+    if (items == null) {
+      http.Response response = await networkManager.getFavourites(_device);
+      setState(() {
+        print("SET STATE");
+        items = FavouritesWrapper
+            .fromJson(json.decode(response.body))
+            .favorites;
+      });
+    } else {
+      setState(() {});
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: _items == null ? 0 : _items.length,
+      controller: new ScrollController(),
+        itemCount: items == null ? 0 : items.length,
         itemBuilder: (context, index) {
-          final item = _items[index];
-          return Dismissible(
-              key: new Key(item.name + item.shopId.id),
-              onDismissed: (direction) {
-                setState(() {
-                  //TODO: Remove POST there
-                  networkManager.removeItem(_device, _items[index].toString());
-                  _items.removeAt(index);
-                });
-              },
-              child: new FavouriteItem.fromNetwork(_items[index]));
+          final item = items[index];
+          return new FavouriteItem.fromNetwork(
+              item, this, index, _device, networkManager);
         });
   }
 
   @override
   void initState() {
     super.initState();
+    print('INIT STATE');
     initDeviceInfo();
     initData();
   }

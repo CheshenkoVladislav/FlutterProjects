@@ -47,7 +47,7 @@ class FavId {
 
   factory FavId.fromJson(Map<String, dynamic> json) {
     return FavId(
-      id: json['id'],
+      id: json['\$oid'],
     );
   }
 }
