@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
             title: new Center(child:
             new Text(_appBarTitle))),
-        body: new FavouritList()
+        body: new FavouriteList()
       )
     );
   }

@@ -10,9 +10,6 @@ class FavouriteItem extends StatelessWidget {
   final Favourite favouriteData;
   final FavouriteState parentState;
   final int index;
-  final NetworkManager networkManager;
-
-  final String device;
 
   //ITEM SIZE
   final double _paddingAll = 4.0;
@@ -25,8 +22,7 @@ class FavouriteItem extends StatelessWidget {
 
   SlideToDismissDrawerDelegate slideToDismiss;
 
-  FavouriteItem.fromNetwork(this.favouriteData, this.parentState, this.index,
-      this.device, this.networkManager);
+  FavouriteItem.fromNetwork(this.favouriteData, this.parentState, this.index);
 
   void _changeScreen(context) {
     Navigator.pushNamed(context, '/second');
@@ -45,7 +41,7 @@ class FavouriteItem extends StatelessWidget {
             padding: new EdgeInsets.all(_paddingAll),
             child: new Card(
                 child: new Dismissible(
-                  direction: DismissDirection.endToStart,
+                    direction: DismissDirection.endToStart,
                     key: new Key(Random.secure().nextInt(1234).toString()),
                     background: new LeaveBehindView(),
                     onDismissed: (direction) {
@@ -60,37 +56,39 @@ class FavouriteItem extends StatelessWidget {
                               bottom: _contentPadding,
                               left: _imagePaddingLeft),
                           child: new Row(children: <Widget>[
-                            new Image(
-                              image: NetworkImage(favouriteData.thumbnail),
-                              height: _imageHeight,
-                              width: _imageWidth,
-                              fit: BoxFit.cover,
-                            ),
-                            new Expanded(
-                                child: new Padding(
-                                    padding:
-                                        new EdgeInsets.all(_textPaddingLeft),
-                                    child: new Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Padding(
-                                            padding: new EdgeInsets.only(
-                                                bottom: _textPaddingBottom),
-                                            child: new Text(favouriteData.name),
-                                          ),
-                                          Padding(
-                                            padding: new EdgeInsets.only(
-                                                bottom: _textPaddingBottom),
-                                            child: new Text('МАГАЗИН'),
-                                          ),
-                                          new Text(
-                                              favouriteData.price.toString())
-                                        ])))
+                            _buildImage(),
+                            _buildTextColumn()
                           ]),
                         ))))));
+  }
+
+  Image _buildImage() {
+    return new Image(
+      image: NetworkImage(favouriteData.thumbnail),
+      height: _imageHeight,
+      width: _imageWidth,
+      fit: BoxFit.cover,
+    );
+  }
+
+  Expanded _buildTextColumn() {
+    return new Expanded(
+        child: new Padding(
+            padding: new EdgeInsets.all(_textPaddingLeft),
+            child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: new EdgeInsets.only(bottom: _textPaddingBottom),
+                    child: new Text(favouriteData.name),
+                  ),
+                  Padding(
+                    padding: new EdgeInsets.only(bottom: _textPaddingBottom),
+                    child: new Text('МАГАЗИН'),
+                  ),
+                  new Text(favouriteData.price.toString())
+                ])));
   }
 }
 
@@ -107,7 +105,7 @@ class LeaveBehindView extends StatelessWidget {
           ),
           new Icon(
             Icons.delete,
-            key: new Key('123'),
+            key: new Key('Icon_key'),
             color: Colors.white,
             size: 36.0,
           )
