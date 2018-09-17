@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/managers/DeviceManager.dart';
 import 'package:flutter_app/data/FavouriteData.dart';
@@ -36,24 +37,20 @@ class FavouriteState extends State<FavouritList> {
             FavouritesWrapper.fromJson(json.decode(response.body)).favorites;
       });
     } else {
-      setState(() {});
+    setState(() {
+    });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    animatedHeight = screenHeight / 2.6;
     return ListView.builder(
         controller: new ScrollController(),
         itemCount: items == null ? 0 : items.length,
         itemBuilder: (context, index) {
           final item = items[index];
-          return new AnimatedContainer(
-              duration: new Duration(milliseconds: 200),
-              height:  animatedHeight,
-              child: new FavouriteItem.fromNetwork(
-              item, this, index, _device, networkManager));
+          return new FavouriteItem.fromNetwork(
+              item, this, index, _device, networkManager);
         });
   }
 
@@ -67,8 +64,9 @@ class FavouriteState extends State<FavouritList> {
 
   void removeItem(int index) {
     setState(() {
-      animatedHeight = 0.0;
-      items.removeAt(index);
+      if (items[index] != null) {
+        items.removeAt(index);
+      }
     });
   }
 }

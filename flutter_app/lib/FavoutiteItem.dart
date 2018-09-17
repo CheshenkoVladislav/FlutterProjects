@@ -44,27 +44,13 @@ class FavouriteItem extends StatelessWidget {
         child: new Padding(
             padding: new EdgeInsets.all(_paddingAll),
             child: new Card(
-                child: new Slidable(
-                    key: new Key(favouriteData.id.id),
-                    actionExtentRatio: 0.25,
-                    delegate: new SlidableStrechDelegate(),
-                    actions: <Widget>[
-                      new IconSlideAction(
-                          caption: 'Delete',
-                          closeOnTap: false,
-                          color: Colors.red,
-                          icon: Icons.delete,
-                          onTap: () {
-                            parentState.removeItem(index);
-                          })
-                    ],
-                    slideToDismissDelegate: new SlideToDismissDrawerDelegate(
-                        onDismissed: (actionType) {
-                      parentState.setState(() {
-                        networkManager.removeItem(device, favouriteData.id.id);
-                        parentState.items.removeAt(index);
-                      });
-                    }),
+                child: new Dismissible(
+                  direction: DismissDirection.endToStart,
+                    key: new Key(Random.secure().nextInt(1234).toString()),
+                    background: new LeaveBehindView(),
+                    onDismissed: (direction) {
+                      parentState.removeItem(index);
+                    },
                     child: new Container(
                         height: itemHeight,
                         child: Padding(
@@ -106,8 +92,27 @@ class FavouriteItem extends StatelessWidget {
                           ]),
                         ))))));
   }
+}
 
-  void _showSnackBar(BuildContext context, String text) {
-    Scaffold.of(context).showSnackBar(SnackBar(content: new Text(text)));
+class LeaveBehindView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      color: Colors.red,
+      padding: const EdgeInsets.all(16.0),
+      child: new Row(
+        children: <Widget>[
+          new Expanded(
+            child: new Text(''),
+          ),
+          new Icon(
+            Icons.delete,
+            key: new Key('123'),
+            color: Colors.white,
+            size: 36.0,
+          )
+        ],
+      ),
+    );
   }
 }

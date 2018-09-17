@@ -28,6 +28,8 @@ class Favourite {
       this.shopId,
       this.thumbnail});
 
+  Favourite.test(this.name, this.price, this.thumbnail);
+
   factory Favourite.fromJson(Map<String, dynamic> json) {
     return Favourite(
       id: FavId.fromJson(json['_id']),
