@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       initialRoute: '/',
       routes: {
-        '/second' :  (context) => FavouriteItemMain()
+        '/second' :  (context) => new FavouriteIemMain()
       },
       home: new Scaffold(
         appBar: new AppBar(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class FavouriteItemMain extends StatelessWidget {
+class FavouriteIemMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

@@ -24,9 +24,9 @@ class FavouriteItem extends StatelessWidget {
 
   FavouriteItem.fromNetwork(this.favouriteData, this.parentState, this.index);
 
-  void _changeScreen(context) {
-    Navigator.pushNamed(context, '/second');
-  }
+    void _changeScreen(context) {
+      Navigator.pushNamed(context, '/second');
+    }
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:menu/politic.dart';
 
 void main() => runApp(new Menu());
 
@@ -6,8 +7,10 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      initialRoute: '/',
+      routes: {'/politic': (context) => new PoliticScreen()},
       home: new Scaffold(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.white70,
         appBar: new AppBar(
           title: new Text("Menu"),
           centerTitle: true,
@@ -26,7 +29,7 @@ class MenuList extends StatelessWidget {
     double itemImageHeight = MediaQuery.of(context).size.height / 4;
     return new Column(
       children: <Widget>[
-        new MenuItemText(_city),
+        new MenuItemText.customPaddings(_city, 16.0, 8.0, 0.0, 8.0),
         new MenuItemImages(itemImageHeight),
         new MenuGroupItemText()
       ],
@@ -52,38 +55,40 @@ class MenuItemImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-        color: Colors.white,
-        height: _height,
-        margin: EdgeInsets.only(top: _marginTop, bottom: _marginBottom),
-        child: new Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Container(
-                padding: EdgeInsets.only(
-                    right: _rightPadding,
-                    top: _topPadding,
-                    bottom: _bottomPadding),
-                child: new Image(
-                    fit: BoxFit.cover,
-                    width: _imageWidth,
-                    height: _imageHeight,
-                    image: new AssetImage('assets/women.jpg')),
-              ),
-              new Container(
-                padding: EdgeInsets.only(
-                    left: _leftPadding,
-                    right: _rightPadding,
-                    top: _topPadding,
-                    bottom: _bottomPadding),
-                child: new Image(
-                    fit: BoxFit.cover,
-                    width: _imageWidth,
-                    height: _imageHeight,
-                    image: new AssetImage('assets/men.jpg')),
-              ),
-            ])); // TODO: implement build
+    return new Material(
+        elevation: 6.0,
+        child: new Container(
+            color: Colors.white,
+            height: _height,
+            margin: EdgeInsets.only(top: _marginTop, bottom: _marginBottom),
+            child: new Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Container(
+                    padding: EdgeInsets.only(
+                        right: _rightPadding,
+                        top: _topPadding,
+                        bottom: _bottomPadding),
+                    child: new Image(
+                        fit: BoxFit.cover,
+                        width: _imageWidth,
+                        height: _imageHeight,
+                        image: new AssetImage('assets/women.jpg')),
+                  ),
+                  new Container(
+                    padding: EdgeInsets.only(
+                        left: _leftPadding,
+                        right: _rightPadding,
+                        top: _topPadding,
+                        bottom: _bottomPadding),
+                    child: new Image(
+                        fit: BoxFit.cover,
+                        width: _imageWidth,
+                        height: _imageHeight,
+                        image: new AssetImage('assets/men.jpg')),
+                  ),
+                ]))); // TODO: implement build
   }
 }
 
@@ -97,9 +102,9 @@ class MenuGroupItemText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: new Container(
-            padding: EdgeInsets.only(top: _topPadding),
+    return new Expanded(
+        child: new Material(
+            elevation: 6.0,
             color: Colors.white,
             child: new Column(
               children: <Widget>[
@@ -112,29 +117,81 @@ class MenuGroupItemText extends StatelessWidget {
 }
 
 class MenuItemText extends StatelessWidget {
-  final double _leftPadding = 8.0;
-  final double _topPadding = 16.0;
-  final double _botPadding = 8.0;
   final double _mainPadding = 8.0;
   final String text;
+  double _leftPadding;
+  double _rightPadding;
+  double _topPadding;
+  double _botPadding;
 
   MenuItemText(this.text);
 
+  MenuItemText.customPaddings(this.text, this._topPadding, this._botPadding,
+      this._rightPadding, this._leftPadding);
+
   @override
   Widget build(BuildContext context) {
-    return new InkWell(
-        onTap: () {
-//          Scaffold.of(context).showSnackBar(SnackBar(
-//            content: Text('Tap'),
-//          ));
-        },
-        child: new Container(
-      color: Colors.white,
-      padding: EdgeInsets.all(_mainPadding),
-      child: new Row(children: <Widget>[
-        new Expanded(child: new Text(text)),
-        new Icon(Icons.chevron_right)
-      ]),
-    ));
+    if (_topPadding != null ||
+        _botPadding != null ||
+        _rightPadding != null ||
+        _leftPadding != null)
+      return createMenuItemWithPaddings(
+          context, _topPadding, _botPadding, _rightPadding, _leftPadding);
+    else
+      return createMenuItem(context);
+  }
+
+  Widget createMenuItemWithPaddings(BuildContext context, double topPadding,
+      botPadding, double rightPadding, double leftPadding) {
+    return new Material(
+        elevation: 6.0,
+        color: Colors.white,
+        child: new InkWell(
+            onTap: () {},
+            child: new Padding(
+              padding: EdgeInsets.only(
+                  top: _topPadding,
+                  bottom: _botPadding,
+                  right: _rightPadding,
+                  left: _leftPadding),
+              child: new Row(children: <Widget>[
+                new Expanded(child: new Text(text)),
+                new Icon(
+                  Icons.chevron_right,
+                  color: Colors.grey,
+                )
+              ]),
+            )));
+  }
+
+  Widget createMenuItem(BuildContext context) {
+    return new Material(
+        color: Colors.white,
+        child: new InkWell(
+            onTap: () {
+              switch (text) {
+                case "Оценить приложение":
+                  break;
+                case "Обратная связь":
+                  break;
+                case "Политика конфиденциальности":
+                  _changeScreen(context);
+                  break;
+              }
+            },
+            child: new Padding(
+              padding: EdgeInsets.all(_mainPadding),
+              child: new Row(children: <Widget>[
+                new Expanded(child: new Text(text)),
+                new Icon(
+                  Icons.chevron_right,
+                  color: Colors.grey,
+                )
+              ]),
+            )));
+  }
+
+  void _changeScreen(context) {
+    Navigator.pushNamed(context, '/politic');
   }
 }

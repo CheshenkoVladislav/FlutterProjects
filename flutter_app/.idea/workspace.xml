@@ -33,20 +33,35 @@
       <file leaf-file-name="FavoutiteItem.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/FavoutiteItem.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
+            <state relative-caret-position="210">
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FavouritesList.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FavouritesList.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/FavouritesList.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FavouriteItemMain.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/mainScreens/FavouriteItemMain.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Favourites.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/mainScreens/Favourites.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -119,27 +134,53 @@
         <option value="$PROJECT_DIR$/lib/NetworkManager.dart" />
         <option value="$PROJECT_DIR$/lib/Favourites.dart" />
         <option value="$PROJECT_DIR$/lib/managers/DeviceManager.dart" />
-        <option value="$PROJECT_DIR$/lib/mainScreens/Favourites.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/managers/NetworkManager.dart" />
         <option value="$PROJECT_DIR$/lib/FavouritesList.dart" />
-        <option value="$PROJECT_DIR$/lib/FavoutiteItem.dart" />
         <option value="$PROJECT_DIR$/lib/data/FavouriteData.dart" />
+        <option value="$PROJECT_DIR$/lib/mainScreens/FavouriteItemMain.dart" />
+        <option value="$PROJECT_DIR$/lib/mainScreens/Favourites.dart" />
+        <option value="$PROJECT_DIR$/lib/FavoutiteItem.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="137" />
-    <option name="y" value="162" />
+    <option name="y" value="176" />
     <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="height" value="712" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="flutter_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="flutter_app" type="e9137016:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="flutter_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="flutter_app" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="flutter_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="flutter_app" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+              <item name="mainScreens" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="CardLimitView&#9;null&#9;null" />
@@ -319,7 +360,7 @@
       <window_info id="Captures" order="2" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.5131291" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17851374" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -518,34 +559,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mainScreens/FavouriteItemMain.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_slidable-0.4.6/lib/src/widgets/slidable.dart" />
     <entry file="file://E:/flutter/packages/flutter/lib/src/widgets/implicit_animations.dart" />
-    <entry file="file://$PROJECT_DIR$/lib/mainScreens/Favourites.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../../Downloads/changecard/flutter/bin/cache/dart-sdk/lib/_http/http_impl.dart" />
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/FavoutiteItem.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -565,11 +585,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/FavouritesList.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/FavoutiteItem.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mainScreens/FavouriteItemMain.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mainScreens/Favourites.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
         </state>
       </provider>
     </entry>
