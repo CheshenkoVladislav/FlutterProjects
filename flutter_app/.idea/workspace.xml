@@ -12,10 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="31ee2e82-d499-4206-8b3c-293e374368f3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/FavouritesList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/FavouritesList.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/FavoutiteItem.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/FavoutiteItem.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/FavouriteData.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/FavouriteData.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mainScreens/Favourites.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainScreens/Favourites.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../menu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../menu/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -151,10 +148,13 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -177,9 +177,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,7 +339,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3277487" />
@@ -353,7 +349,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50852114" side_tool="true" weight="0.33926702" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.49807587" weight="0.3277487" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49147883" weight="0.3398374" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" weight="0.32357723" />
+      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32275862" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3277487" />
       <window_info anchor="right" id="Flutter Outline" order="3" />
       <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.49807587" weight="0.4152174" />

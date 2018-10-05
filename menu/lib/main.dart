@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menu/politic.dart';
 
-void main() => runApp(new Menu());
+//void main() => runApp(new Menu());
 
 class Menu extends StatelessWidget {
   @override
