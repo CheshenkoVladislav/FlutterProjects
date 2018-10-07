@@ -111,7 +111,9 @@ class MenuItemText extends StatelessWidget {
         elevation: 6.0,
         color: Colors.white,
         child: new InkWell(
-            onTap: () {},
+            onTap: () {
+              _changeScreen(context, _routeTag);
+            },
             child: new Padding(
               padding: EdgeInsets.only(
                   top: _topPadding,

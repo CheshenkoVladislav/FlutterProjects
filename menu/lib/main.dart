@@ -10,6 +10,7 @@ class Menu extends StatelessWidget {
   static const String INIT_ROUTE = '/';
   static const String POLITIC_SCREEN = '/politic';
   static const String FEEDBACK_SCREEN = '/feedback';
+  static const String CITIES_SCREEN = '/cities';
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,8 @@ class Menu extends StatelessWidget {
       initialRoute: INIT_ROUTE,
       routes: {
         POLITIC_SCREEN : (context) => new Politic(),
-        FEEDBACK_SCREEN : (context) => new FeedbackScreen()
+        FEEDBACK_SCREEN : (context) => new FeedbackScreen(),
+        CITIES_SCREEN : (context) => new Cities()
       },
       home: new Scaffold(
         backgroundColor: Colors.white70,
@@ -44,7 +46,7 @@ class MenuList extends StatelessWidget {
     double itemImageHeight = MediaQuery.of(context).size.height / 4;
     return new Column(
       children: <Widget>[
-        new MenuItemText.customPaddings(_city, 16.0, 8.0, 0.0, 8.0),
+        new MenuItemText.customPaddings(_city, 16.0, 8.0, 0.0, 8.0, Menu.CITIES_SCREEN),
         new MenuItemImages(itemImageHeight),
         new MenuGroupItemText(_items)
       ],
