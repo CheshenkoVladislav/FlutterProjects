@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PoliticScreen extends StatelessWidget {
+class Politic extends StatelessWidget {
   final TextStyle titleStyle =
       new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0);
   final TextStyle textStyle = new TextStyle();

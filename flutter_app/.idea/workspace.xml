@@ -12,7 +12,11 @@
   <component name="ChangeListManager">
     <list default="true" id="31ee2e82-d499-4206-8b3c-293e374368f3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../menu/.idea/runConfigurations/main_dart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../menu/.idea/runConfigurations/main_dart.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../menu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../menu/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../menu/lib/feedback.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../menu/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../menu/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../menu/lib/politic.dart" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -54,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Favourites.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Favourites.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/mainScreens/Favourites.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
@@ -63,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NetworkManager.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NetworkManager.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/managers/NetworkManager.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            <state relative-caret-position="98">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -132,19 +136,19 @@
         <option value="$PROJECT_DIR$/lib/Favourites.dart" />
         <option value="$PROJECT_DIR$/lib/managers/DeviceManager.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/managers/NetworkManager.dart" />
         <option value="$PROJECT_DIR$/lib/FavouritesList.dart" />
         <option value="$PROJECT_DIR$/lib/data/FavouriteData.dart" />
         <option value="$PROJECT_DIR$/lib/mainScreens/FavouriteItemMain.dart" />
         <option value="$PROJECT_DIR$/lib/mainScreens/Favourites.dart" />
         <option value="$PROJECT_DIR$/lib/FavoutiteItem.dart" />
+        <option value="$PROJECT_DIR$/lib/managers/NetworkManager.dart" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="176" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="712" />
+    <option name="height" value="709" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -152,9 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -177,6 +178,30 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="flutter_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="managers" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,7 +363,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="709" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3277487" />
@@ -349,7 +375,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50852114" side_tool="true" weight="0.33926702" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.49807587" weight="0.3277487" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49147883" weight="0.3398374" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32275862" />
+      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.38235295" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3277487" />
       <window_info anchor="right" id="Flutter Outline" order="3" />
       <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.49807587" weight="0.4152174" />
@@ -565,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/managers/NetworkManager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/data/FavouriteData.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
@@ -604,6 +623,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/managers/NetworkManager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
