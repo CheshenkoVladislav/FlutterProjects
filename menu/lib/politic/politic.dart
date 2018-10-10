@@ -7,8 +7,7 @@ class Politic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: new Scaffold(
+    return new Scaffold(
           appBar: new AppBar(
             title: new Text("Politic"),
           ),
@@ -39,7 +38,7 @@ class Politic extends StatelessWidget {
                           createNewTitleWidget(_confidencePoliticTitle7),
                           createNewTextWidget(_confidencePolitic7),
                         ]))),
-          )),
+          ),
     );
   }
 

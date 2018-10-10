@@ -17,8 +17,7 @@ class FeedbackScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-        home: new Scaffold(
+    return new Scaffold(
             appBar: new AppBar(title: new Text(_appBarTitle)),
             body: new Padding(
                 padding: EdgeInsets.all(_mainPadding),
@@ -43,6 +42,6 @@ class FeedbackScreen extends StatelessWidget {
                         });
                     }
                   },
-                ))));
+                )));
   }
 }

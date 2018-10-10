@@ -16,7 +16,7 @@ class FeedbackButton extends StatelessWidget {
         new EdgeInsets.only(top: _itemsPadding, left: _sidePadding, right: _sidePadding),
         child: new OutlineButton(
           highlightElevation: 4.0,
-          disabledBorderColor: Colors.blue,
+          disabledBorderColor: Colors.black,
           shape: new RoundedRectangleBorder(
               borderRadius: new BorderRadius.circular(_borderRadius)),
           child: new Text(_buttonText),
